@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerMoveControl : MonoBehaviour
 {
     public Vector3 inputVec;
-    public float speed = 0.05f;
-    public float health = 100f;
+    public float speed = 2.5f; //플레이어 속도
+    public float health = 100f; //플레이어 체력
 
     Rigidbody rigid;
 
     void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
+        rigid = GetComponent<Rigidbody>(); //초기화
     }
 
     void Start()
@@ -23,37 +23,36 @@ public class PlayerMoveControl : MonoBehaviour
 
     void Update()
     {
-        Move();
+        inputVec.x = Input.GetAxisRaw("Horizontal"); //A,D로 좌우 이동
+        inputVec.z = Input.GetAxisRaw("Vertical"); //W, S로 앞뒤 이동
+
+        Vector3 nextVec = inputVec.normalized * speed * Time.deltaTime; // normalized: 벡터값을 1로 수정 nextVec: 다음으로 이동하는 방향
+        rigid.MovePosition(rigid.position + nextVec); // 내 위치 + 다음으로 이동하는 방향
     }
 
-    public void Move()
+    private void OnTriggerEnter(Collider collision) // 충돌 감지
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(speed, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(0, 0, speed);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(-speed, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(0, 0, -speed);
-        }
+        if(!collision.CompareTag("Enemy")) // Enemy가 아니면 return
+            return;
+
+        //float dmg = collision.GetComponent<Enemy>().dmg;
+        //TakeDamage(dmg);
     }
 
-    public float TakeDamage(float dmg) 
+    public float TakeDamage(float dmg) // 데미지 계산
     {
-        health -= dmg;
-        Debug.Log("Player: " + health);
-        if (health < 0)
+        health -= dmg; // 데미지가 들어오면 체력 감소
+        Debug.Log("Player: " + health); // 현재 플레이어 체력
+
+        if (health <= 0) // 체력이 0 이하면 Dead
         {
-            Destroy(gameObject);
+            Dead();
         }
         return health;
+    }
+
+    public void Dead() // 오브젝트 비활성화
+    {
+        gameObject.SetActive(false);
     }
 }
