@@ -45,6 +45,17 @@ public class PlayerMoveControl : MonoBehaviour
         //TakeDamage(dmg);
     }
 
+    void FreezeRotation() 
+    {
+        rigid.angularVelocity = Vector3.zero;
+    }
+
+    void FixedUpdate()
+    {
+        FreezeRotation();
+    }
+    //player enemy와 충돌했을때 이동 물리가 이동방해하는 것 방지
+
     public float TakeDamage(float dmg) // 데미지 계산
     {
         health -= dmg; // 데미지가 들어오면 체력 감소
