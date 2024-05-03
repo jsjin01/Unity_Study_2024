@@ -47,7 +47,7 @@ public class PlayerMoveControl : MonoBehaviour
 
     void FreezeRotation() 
     {
-        rigid.angularVelocity = Vector3.zero;
+        rigid.velocity= Vector3.zero;  //몬스터 충돌 할 때 가속도 때문에 추가
     }
 
     void FixedUpdate()
