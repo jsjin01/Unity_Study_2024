@@ -5,19 +5,22 @@ using UnityEngine;
 public class PlayerMoveControl : MonoBehaviour
 {
     public Vector3 inputVec;
-    public float speed = 2.5f; //플레이어 속도
-    public float health = 100f; //플레이어 체력
+    public float speed; //플레이어 속도
+    public float health; //플레이어 체력
 
     Rigidbody rigid;
+    Animator anim;
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody>(); //초기화
+        anim = GetComponent<Animator>();
     }
 
     void Start()
     {
-        
+        speed = PlayerManager.i.moveSpeed;      //PlayerManager스크립트에서 받아오기
+        health=PlayerManager.i.hp;              //PlayerManager스크립트에서 받아오기
     }
 
 
@@ -28,6 +31,9 @@ public class PlayerMoveControl : MonoBehaviour
 
         Vector3 nextVec = inputVec.normalized * speed * Time.deltaTime; // normalized: 벡터값을 1로 수정 nextVec: 다음으로 이동하는 방향
         rigid.MovePosition(rigid.position + nextVec); // 내 위치 + 다음으로 이동하는 방향
+
+        anim.SetBool("isWalk", nextVec != Vector3.zero);    //움직이면 걷는 애니메이션
+        transform.LookAt(transform.position + nextVec);     //바라보는 방향으로 회전
     }
 
     private void OnTriggerEnter(Collider collision) // 충돌 감지
