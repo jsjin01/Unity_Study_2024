@@ -10,6 +10,8 @@ public class MainCamera : MonoBehaviour
     public float offsetY = 7.0f;           // 카메라의 y좌표
     public float offsetZ = -15.0f;          // 카메라의 z좌표
 
+    //Vector3으로 한번에 받아서 더하는 것도 하나의 방법 
+
     public float CameraSpeed = 10.0f;       // 카메라의 속도
     Vector3 TargetPos;                      // 타겟의 위치
 
