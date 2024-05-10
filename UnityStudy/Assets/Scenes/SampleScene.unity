@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -651,6 +651,60 @@ MonoBehaviour:
   offsetY: 5
   offsetZ: -5
   CameraSpeed: 10
+--- !u!1 &1155421752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1155421754}
+  - component: {fileID: 1155421753}
+  m_Layer: 0
+  m_Name: ItemSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1155421753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155421752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6090fdeeecdd8438e3a93fa035e7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HpItems:
+  - {fileID: 2705621696111301285, guid: c2adef35d93d8174bb9afcd3b16077af, type: 3}
+  - {fileID: 5828699242126899240, guid: 28a302d5db45e614dbdab8a404573e2c, type: 3}
+  - {fileID: 4448401749299346681, guid: 2ac6d05dd41b2b742af546c320854b3d, type: 3}
+  - {fileID: 5724126154034640780, guid: 7f8ccea3fd8a77c41876e796e6c4f979, type: 3}
+  - {fileID: 6355497220853872655, guid: 2c19673cee38e124cb887739b7946a08, type: 3}
+  - {fileID: 2858057446299072861, guid: 81ff254c37f3a5741b6abb2ae9745671, type: 3}
+  - {fileID: 1737261344346078627, guid: 7eab241f8161fcf4391b6021db696443, type: 3}
+  isSpawn: 1
+  itemRate: 3
+--- !u!4 &1155421754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155421752}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.32802516, y: 0.9678357, z: 0.14593466}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1335793802
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +887,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2.5
   hp: 100
+  maxHp: 100
+  cri: 0
+  atkspd: 0
 --- !u!1001 &3717515061004909400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1029,3 +1086,4 @@ SceneRoots:
   - {fileID: 3717515061004909400}
   - {fileID: 4434999941793299406}
   - {fileID: 5835606797031713735}
+  - {fileID: 1155421754}
