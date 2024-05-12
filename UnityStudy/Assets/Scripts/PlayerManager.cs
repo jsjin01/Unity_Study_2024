@@ -27,4 +27,10 @@ public class PlayerManager : MonoBehaviour
     {
         
     }
+
+    public void Recovery(int value) //hp È¸º¹
+    {
+        hp += value;
+        if (hp > maxHp) hp = maxHp;
+    }
 }
