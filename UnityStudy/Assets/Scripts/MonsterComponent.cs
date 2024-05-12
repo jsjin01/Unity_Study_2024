@@ -12,7 +12,18 @@ public class MonsterComponent : MonoBehaviour
     BoxCollider boxCollider;
     NavMeshAgent nav;
 
-    void Awake() //초기화
+    void Awake() 
+    {
+    }
+
+    private void OnEnable()
+    {
+        rigid = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
+        nav = GetComponent<NavMeshAgent>();
+    }
+
+    private void Start()
     {
         rigid = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
@@ -33,6 +44,7 @@ public class MonsterComponent : MonoBehaviour
 
     void Update()
     {
+        target = GameObject.Find("Player").transform;
         nav.SetDestination(target.position);
     }
     //플레이어 따라다니는 ai
