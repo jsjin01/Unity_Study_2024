@@ -54,13 +54,15 @@ public class EnemyPoolManager : MonoBehaviour
     {
         GameObject temp;//게임 오브젝트를 담을 변수
 
+        
+
         if(transform.GetChild((int)_t).childCount == 0) //해당 EnemyPool에 아무것도 없으면 새로 생성
         {
            CreateEnemy(_t); 
         }
 
         temp = transform.GetChild((int)_t).GetChild(0).gameObject; //해당 EnemyPool에서 하나 새로 가져옴
-
+        temp.tag = "Enemy"; //temp에 enemy 태그 추가
 
         temp.transform.position = pos; //위치 설정
         temp.transform.SetParent(null);// 부모 설정 해제
