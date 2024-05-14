@@ -27,7 +27,7 @@ public abstract class WeaponComponent : MonoBehaviour  //추상 클래스로 선언
     public abstract void Shot();                     //재정의할 함수
                                                      //총의 종류마다 쏘는 방법만 다르기 때문에
                                                      //추상클래스로 상속받아서 사용할 예정
-    
+  
     
     protected IEnumerator ShotRate() //공격속도에 따른 딜레이 추가
     {
