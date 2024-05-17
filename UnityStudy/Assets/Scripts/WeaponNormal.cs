@@ -21,22 +21,24 @@ public class WeaponNormal : WeaponComponent
     public override void Shot()
     {
         if (!canShoot) return;
-        ray.origin = transform.position; //ray의 시작점
-        ray.direction = transform.forward; //캐릭터의 z축
+            ray.origin = transform.position; //ray의 시작점
+            ray.direction = transform.forward; //캐릭터의 z축
 
-        line.startWidth = 0.1f;
-        line.SetPosition(0, ray.origin);
+            line.startWidth = 0.1f;
+            line.SetPosition(0, ray.origin);
 
         
-        if (Physics.Raycast(ray, out hit, hitenemy)) {
+        if (Physics.Raycast(ray, out hit, range, hitenemy)) {
             line.SetPosition(1, hit.point);
             DamageEnemy(hit.transform.gameObject); //hit된 enemy까지 선 그리기
-        }
+            }
         else {
-            line.SetPosition(0, ray.origin + ray.direction * range); // 아닐 경우 사거리만큼 선 그리기
-        }
+            line.SetPosition(1, ray.origin + ray.direction * range); // 아닐 경우 사거리만큼 선 그리기
+            Debug.Log("ray");
+            }
         StartCoroutine(Linereset());
         StartCoroutine(ShotRate());
+       
     }
 
     IEnumerator Linereset() //선이 사라지는 함수
@@ -53,5 +55,4 @@ public class WeaponNormal : WeaponComponent
         }
         yield return new WaitForEndOfFrame();
     }
-
 }
