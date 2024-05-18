@@ -6,6 +6,8 @@ using static UnityEditor.PlayerSettings;
 public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] HpItems;      //체력 회복 아이템
+    [SerializeField] GameObject[] Items;        //쉴드, 터렛, 지뢰
+    [SerializeField] GameObject[] WeaponItems;  //무기 아이템
 
     [SerializeField] bool isSpawn = true;
     [SerializeField] float itemRate = 3f;
@@ -19,6 +21,7 @@ public class ItemSpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(spawnItem(HpItems, itemRate));
+        StartCoroutine(spawnItem(Items, itemRate));
     }
 
     // Update is called once per frame
@@ -64,9 +67,5 @@ public class ItemSpawner : MonoBehaviour
 
             Instantiate(item[index], setPoint(), Quaternion.identity);  //아이템 랜덤 생성
         }
-    }
-    void DestroyItem()
-    {
-        Destroy(gameObject);
     }
 }

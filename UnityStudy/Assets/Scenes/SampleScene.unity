@@ -720,6 +720,8 @@ MonoBehaviour:
   - {fileID: 6355497220853872655, guid: 2c19673cee38e124cb887739b7946a08, type: 3}
   - {fileID: 2858057446299072861, guid: 81ff254c37f3a5741b6abb2ae9745671, type: 3}
   - {fileID: 1737261344346078627, guid: 7eab241f8161fcf4391b6021db696443, type: 3}
+  Items: []
+  WeaponItems: []
   isSpawn: 1
   itemRate: 3
 --- !u!4 &1155421754
@@ -985,6 +987,7 @@ MonoBehaviour:
   maxHp: 100
   cri: 0
   atkspd: 0
+  shield_PreFab: {fileID: 5838337519552399149, guid: 5251a780cc36fa64e8bdaa8a1d21a646, type: 3}
 --- !u!1 &1971354633
 GameObject:
   m_ObjectHideFlags: 0

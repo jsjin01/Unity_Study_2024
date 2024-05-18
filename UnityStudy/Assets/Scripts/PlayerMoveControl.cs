@@ -33,9 +33,20 @@ public class PlayerMoveControl : MonoBehaviour
         rigid.MovePosition(rigid.position + nextVec); // 내 위치 + 다음으로 이동하는 방향
 
         anim.SetBool("isWalk", nextVec != Vector3.zero);    //움직이면 걷는 애니메이션
-        transform.LookAt(transform.position + nextVec);     //바라보는 방향으로 회전
+        LookMouse();
     }
+    void LookMouse()    //마우스를 바라보는 함수
+    {
+        Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Plane GroupPlane = new Plane(Vector3.up, Vector3.zero);
+        float rayLength;
 
+        if (GroupPlane.Raycast(cameraRay, out rayLength))
+        {
+            Vector3 pointTolook = cameraRay.GetPoint(rayLength);
+            transform.LookAt(new Vector3(pointTolook.x, transform.position.y, pointTolook.z));
+        }
+    }
     private void OnTriggerEnter(Collider collision) // 충돌 감지
     {
         if(!collision.CompareTag("Enemy")) // Enemy가 아니면 return

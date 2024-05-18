@@ -12,6 +12,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public float cri;                 //크리데미지
     [SerializeField] public float atkspd;              //공격 속도
 
+    [SerializeField] GameObject shield_PreFab;
+
     private void Awake()
     {
         i = this;
@@ -32,5 +34,9 @@ public class PlayerManager : MonoBehaviour
     {
         hp += value;
         if (hp > maxHp) hp = maxHp;
+    }
+    public void ShieldOn()  //쉴드 생성
+    {
+        Instantiate(shield_PreFab, transform.position, Quaternion.identity);
     }
 }
