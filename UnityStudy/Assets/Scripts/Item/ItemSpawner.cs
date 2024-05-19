@@ -21,7 +21,7 @@ public class ItemSpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(spawnItem(HpItems, itemRate));
-        StartCoroutine(spawnItem(Items, itemRate));
+        //StartCoroutine(spawnItem(Items, itemRate)); // 다른 아이템 소환
     }
 
     // Update is called once per frame
