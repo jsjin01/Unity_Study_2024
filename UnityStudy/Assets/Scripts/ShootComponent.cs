@@ -11,14 +11,15 @@ public class ShootComponent : MonoBehaviour
 
     private void Start()
     {
-        //SetWeapon(WEAPON.NORMAL);
+        SetWeapon(wType);
     }
 
     void Update()
     {
-        //if (Input.GetMouseButton(0)){
-        //    wc.Shot(); //발사
-        //}
+        if (Input.GetMouseButton(0))
+        {
+            wc.Shot(); //발사
+        }
     }
 
     public void SetWeapon(WEAPON _t) //무기 바꿀때 호출
@@ -30,6 +31,8 @@ public class ShootComponent : MonoBehaviour
         }
 
         currentWeapon = Instantiate(weapon[(int)_t], transform.position, Quaternion.identity, transform);
+        currentWeapon.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        wc = currentWeapon.GetComponent<WeaponComponent>();
         //_t에 해당하는 무기를 자식으로 생성
     }
 }

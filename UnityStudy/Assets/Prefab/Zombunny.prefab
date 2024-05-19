@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6253473650628015907}
   - component: {fileID: 8979430771521296790}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombunny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 8459756258975225094}
   - component: {fileID: 3403544978701827436}
   - component: {fileID: 6162901108592347508}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zombunny
   m_TagString: Enemy
   m_Icon: {fileID: 0}
