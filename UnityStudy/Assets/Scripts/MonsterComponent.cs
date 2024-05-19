@@ -8,6 +8,8 @@ public class MonsterComponent : MonoBehaviour
     public int maxHealth; //최대 체력
     public Transform target; //ai를 통한 플레이어 따라다니기 타겟
 
+    public bool isDead = false; // 죽음 판단 변수
+
     Rigidbody rigid;
     BoxCollider boxCollider;
     NavMeshAgent nav;
@@ -21,6 +23,8 @@ public class MonsterComponent : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
         nav = GetComponent<NavMeshAgent>();
+
+        isDead = false ;
     }
 
     private void Start()
