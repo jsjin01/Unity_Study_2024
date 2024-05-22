@@ -20,6 +20,7 @@ public abstract class WeaponComponent : MonoBehaviour  //추상 클래스로 선언
     [SerializeField] protected WEAPON wType;          //무기 종류
     protected bool canShoot = true;                   //발사 가능 판단 변수
     [SerializeField] int ammo = 0;                    //총알량
+    [SerializeField] protected bool isAuto = false; //자동발사
 
     public int AMMO { get { return ammo; } }          //현재 남은 탄약 발수
     //get으로 바로 ammo를 반환해서 옴
@@ -57,5 +58,10 @@ public abstract class WeaponComponent : MonoBehaviour  //추상 클래스로 선언
     protected void ReduceAmmo()
     {
         ammo--;
+        if(ammo == 0)
+        {
+            isAuto = false;
+            GetComponent<ShootComponent>().SetWeapon(WEAPON.NORMAL); //탄창 0이 되면 노말로 교체
+        }
     }
 }
