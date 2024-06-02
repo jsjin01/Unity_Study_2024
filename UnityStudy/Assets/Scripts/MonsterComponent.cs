@@ -1,7 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.AI;
+
+public enum STATUS
+{
+    NORMAL,
+    KNOCK
+}
 
 public class MonsterComponent : MonoBehaviour
 {
@@ -13,18 +20,32 @@ public class MonsterComponent : MonoBehaviour
     Rigidbody rigid;
     BoxCollider boxCollider;
     NavMeshAgent nav;
+    SkinnedMeshRenderer smr;
+    
+    [SerializeField] int hp = 100; //적 체력설정
+    [SerializeField] int hpMax = 100; //최대 체력설정
+    [SerializeField] int atk = 10; //공격력 설정
+    [SerializeField] float atkRate = 0.2f; //공격속도 설정
+    [SerializeField] Material[] mat = new Material[2];      //원본과 피격 시 변경해 줄 매터리얼을 담아둘 배열
+
+    bool isKnock = false;
+
 
     void Awake() 
-    {
-    }
-
-    private void OnEnable()
     {
         rigid = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
         nav = GetComponent<NavMeshAgent>();
+        smr = GetComponentInChildren<SkinnedMeshRenderer>();
 
-        isDead = false ;
+        isDead = false;
+    }
+
+    private void OnEnable()
+    {
+       hp = hpMax; //hp 초기화
+       isDead = false; //죽음 상태 전환
+        
     }
 
     private void Start()
@@ -52,4 +73,40 @@ public class MonsterComponent : MonoBehaviour
         nav.SetDestination(target.position);
     }
     //플레이어 따라다니는 ai
+
+
+
+    
+    public void TakeDamage(int dmg, STATUS _st = STATUS.NORMAL, bool cri = false)
+    {
+        if (isDead) return;
+
+        hp -= dmg; //hp 감소
+        StartCoroutine(SetHitColor());
+        
+        if (_st == STATUS.KNOCK)
+        {
+            if (!isKnock)
+            {
+                StartCoroutine(KnockBack());
+            }
+        }
+        Vector3 p = transform.position;
+       
+
+    }
+    IEnumerator SetHitColor()
+    {
+        smr.material = mat[1];      //히트 매터리얼로 변경
+        yield return new WaitForSeconds(0.1f);
+        smr.material = mat[0];      //원본 매터리얼로 변경
+    }
+
+    IEnumerator KnockBack()
+    {
+        isKnock = true;
+        rigid.AddForce(-transform.forward * 1000);
+        yield return new WaitForSeconds(0.5f);
+        isKnock = false;
+    }
 }
