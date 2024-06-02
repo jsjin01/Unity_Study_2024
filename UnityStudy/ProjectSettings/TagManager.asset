@@ -8,6 +8,11 @@ TagManager:
   - FxTemporaire
   - Enemy
   - Item
+  - ItemShield
+  - ItemTurret
+  - ItemFlame
+  - ItemShotgun
+  - ItemTazer
   layers:
   - Default
   - TransparentFX

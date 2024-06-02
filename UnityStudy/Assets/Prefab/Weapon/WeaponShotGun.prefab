@@ -67,6 +67,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b974210df5b8634c9fd8a379a642bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atk: 0
+  rate: 0
+  cri: 0
+  wType: 0
+  ammo: 0
+  isAuto: 0
 --- !u!1 &3329817051583365278
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public float atkspd;              //공격 속도
 
     [SerializeField] GameObject shield_PreFab;
+    [SerializeField] GameObject turret_Prefab;
 
     private void Awake()
     {
@@ -37,6 +38,35 @@ public class PlayerManager : MonoBehaviour
     }
     public void ShieldOn()  //쉴드 생성
     {
-        Instantiate(shield_PreFab, transform.position, Quaternion.identity);
+        GameObject shield = Instantiate(shield_PreFab, transform.position+new Vector3(0, 0.93f, 0), Quaternion.identity);
+        shield.transform.SetParent(this.transform);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ItemShield")) //쉴드 아이템을 먹었을 때
+        {
+            ShieldOn(); //쉴드 생성하기
+            Destroy(other.gameObject);  //쉴드 아이템 없애기
+        }
+        else if (other.CompareTag("ItemTurret"))    //터렛 아이템을 먹었을 때
+        {
+            Instantiate(turret_Prefab, transform.position, Quaternion.identity);    //터렛 생성
+            Destroy(other.gameObject);  //터렛 아이템 없애기
+        }
+        else if (other.CompareTag("ItemFlame"))
+        {
+            //화염방사기 장착
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("ItemTazer"))
+        {
+            //화염방사기 장착
+            Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("ItemShotgun"))
+        {
+            //화염방사기 장착
+            Destroy(other.gameObject);
+        }
     }
 }
