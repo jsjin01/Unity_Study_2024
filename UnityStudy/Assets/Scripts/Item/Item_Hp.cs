@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Item_Hp : ItemComponent
 {
@@ -10,5 +11,12 @@ public class Item_Hp : ItemComponent
         Debug.Log("ddd");
         obj.GetComponent<PlayerManager>().Recovery(recovery_Hp);
         // obj에 PlayerManager의 Recovery를 실행
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206739502}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9304beadf7d6cc44b9ad6d67d4a5f569, type: 3}
   m_Name: 
@@ -775,8 +775,13 @@ MonoBehaviour:
   - {fileID: 6355497220853872655, guid: 2c19673cee38e124cb887739b7946a08, type: 3}
   - {fileID: 2858057446299072861, guid: 81ff254c37f3a5741b6abb2ae9745671, type: 3}
   - {fileID: 1737261344346078627, guid: 7eab241f8161fcf4391b6021db696443, type: 3}
-  Items: []
-  WeaponItems: []
+  Items:
+  - {fileID: 8558242073676565442, guid: 9a52eb1c3ffe45c45809ef3d70924c5d, type: 3}
+  - {fileID: 1875090778556656, guid: 96c40c6ee99aa8842bbfa7e5d41ce5a4, type: 3}
+  WeaponItems:
+  - {fileID: 1000010238399616, guid: 36e8daa71a371455e8c832bee5e481b2, type: 3}
+  - {fileID: 1000011474104924, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
+  - {fileID: 1000010964463682, guid: 32cc06541c3334f5dac5152f64ca6ef5, type: 3}
   isSpawn: 1
   itemRate: 3
 --- !u!4 &1155421754
@@ -1048,6 +1053,7 @@ MonoBehaviour:
   cri: 0
   atkspd: 0
   shield_PreFab: {fileID: 5838337519552399149, guid: 5251a780cc36fa64e8bdaa8a1d21a646, type: 3}
+  turret_Prefab: {fileID: 7178880419260694973, guid: 46c624bb42ba0794194c21369d6130d0, type: 3}
 --- !u!1001 &1772204263
 PrefabInstance:
   m_ObjectHideFlags: 0
