@@ -92,8 +92,8 @@ public class MonsterComponent : MonoBehaviour
             }
         }
         Vector3 p = transform.position;
-       
 
+        SoundManager.i.monsterAudioPlay(0);
     }
     IEnumerator SetHitColor()
     {

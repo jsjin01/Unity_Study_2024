@@ -44,7 +44,8 @@ public class WeaponNormal : WeaponComponent
 
         StartCoroutine(Linereset());
         StartCoroutine(ShotRate());
-       
+
+        SoundManager.i.weaponAudioPlay(0);  //사운드 플레이
     }
 
     IEnumerator Linereset() //선이 사라지는 함수
