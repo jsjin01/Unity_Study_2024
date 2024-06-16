@@ -13,7 +13,7 @@ public class CardManager : MonoBehaviour
     }
     void Start()
     {
-
+        SelectedCard();
     }
     void Update()
     {

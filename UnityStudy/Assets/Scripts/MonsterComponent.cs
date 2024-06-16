@@ -129,6 +129,7 @@ public class MonsterComponent : MonoBehaviour
             }
             if (hit)
             {
+                SoundManager.i.monsterAudioPlay(0);
                 PlayerMoveControl.i.TakeDamage(atk);
                 StartCoroutine(hitrate());
             }
