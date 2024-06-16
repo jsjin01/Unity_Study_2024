@@ -79,11 +79,11 @@ public class MonsterComponent : MonoBehaviour
 
 
     
-    public void TakeDamage(int dmg, STATUS _st = STATUS.NORMAL, bool cri = false)
+    public void TakeDamage(float dmg, STATUS _st = STATUS.NORMAL, bool cri = false)
     {
         if (isDead) return;
 
-        hp -= dmg; //hp 감소
+        hp -= (int)dmg; //hp 감소
         StartCoroutine(SetHitColor());
         
         if (_st == STATUS.KNOCK)

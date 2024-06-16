@@ -7,7 +7,7 @@ public class PlayerMoveControl : MonoBehaviour
     public static PlayerMoveControl i;
     public Vector3 inputVec;
     public float speed; //플레이어 속도
-    public float health; //플레이어 체력
+    //health를 선언 후 받아서 사용하는 건 ok => hp에도 변경 사항을 적용시켜줘야하는데 못했음
 
     Rigidbody rigid;
     Animator anim;
@@ -22,7 +22,6 @@ public class PlayerMoveControl : MonoBehaviour
     void Start()
     {
         speed = PlayerManager.i.moveSpeed;      //PlayerManager스크립트에서 받아오기
-        health=PlayerManager.i.hp;              //PlayerManager스크립트에서 받아오기
     }
 
 
@@ -71,15 +70,15 @@ public class PlayerMoveControl : MonoBehaviour
 
     public float TakeDamage(float dmg) // 데미지 계산
     {
-        health -= dmg; // 데미지가 들어오면 체력 감소
-        UiManager.i.hpBar(health);
-        Debug.Log("Player: " + health); // 현재 플레이어 체력
+        PlayerManager.i.hp -= dmg; // 데미지가 들어오면 체력 감소
+        UiManager.i.hpBar(PlayerManager.i.hp);
+        Debug.Log("Player: " + PlayerManager.i.hp); // 현재 플레이어 체력
 
-        if (health <= 0) // 체력이 0 이하면 Dead
+        if (PlayerManager.i.hp <= 0) // 체력이 0 이하면 Dead
         {
             Dead();
         }
-        return health;
+        return PlayerManager.i.hp;
     }
 
     public void Dead() // 오브젝트 비활성화
