@@ -11,6 +11,8 @@ public class WeaponShotGun : WeaponComponent
     {
         StartCoroutine(SetShotGun());
         StartCoroutine(ShotRate());
+
+        SoundManager.i.weaponAudioPlay(2);
     }
 
     IEnumerator SetShotGun()

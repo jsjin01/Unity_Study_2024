@@ -18,6 +18,8 @@ public class WeaponFlame : WeaponComponent
         {
             isAuto = false;
         }
+
+        SoundManager.i.weaponAudioPlay(1);
         
     }
 
