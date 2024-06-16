@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMoveControl : MonoBehaviour
 {
+    public static PlayerMoveControl i;
     public Vector3 inputVec;
     public float speed; //플레이어 속도
     public float health; //플레이어 체력
@@ -13,6 +14,7 @@ public class PlayerMoveControl : MonoBehaviour
 
     void Awake()
     {
+        i = this;
         rigid = GetComponent<Rigidbody>(); //초기화
         anim = GetComponent<Animator>();
     }
@@ -70,6 +72,7 @@ public class PlayerMoveControl : MonoBehaviour
     public float TakeDamage(float dmg) // 데미지 계산
     {
         health -= dmg; // 데미지가 들어오면 체력 감소
+        UiManager.i.hpBar(health);
         Debug.Log("Player: " + health); // 현재 플레이어 체력
 
         if (health <= 0) // 체력이 0 이하면 Dead

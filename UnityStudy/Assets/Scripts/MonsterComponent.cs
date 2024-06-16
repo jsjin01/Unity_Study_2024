@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -29,6 +30,7 @@ public class MonsterComponent : MonoBehaviour
     [SerializeField] Material[] mat = new Material[2];      //원본과 피격 시 변경해 줄 매터리얼을 담아둘 배열
 
     bool isKnock = false;
+    bool hit = true;
 
 
     void Awake() 
@@ -108,5 +110,28 @@ public class MonsterComponent : MonoBehaviour
         rigid.AddForce(-transform.forward * 1000);
         yield return new WaitForSeconds(0.5f);
         isKnock = false;
+    }
+
+    IEnumerator hitrate()//공격 속도 설정
+    {
+        hit = false;
+        yield return new WaitForSeconds(1f);
+        hit = true;
+    }
+
+    private void OnCollisionStay(Collision collision)//몬스터와 충돌했을 때 적용
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (isDead)
+            {
+                return;
+            }
+            if (hit)
+            {
+                PlayerMoveControl.i.TakeDamage(atk);
+                StartCoroutine(hitrate());
+            }
+        }
     }
 }

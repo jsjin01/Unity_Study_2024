@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,11 +20,10 @@ public class UiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hpBar();
     }
 
-    public void hpBar()
+    public void hpBar(float hp)
     {
-        GameObject.Find("Hp").GetComponent<Slider>().value = PlayerManager.i.hp;
+        GameObject.Find("Hp").GetComponent<Slider>().value = hp;
     }
 }
