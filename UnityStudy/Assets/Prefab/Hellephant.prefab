@@ -152,6 +152,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   target: {fileID: 0}
+  isDead: 0
+  hp: 100
+  hpMax: 100
+  atk: 10
+  atkRate: 0.2
+  mat:
+  - {fileID: 2100000, guid: 20c2c861010d0ce49a4716087f02535e, type: 2}
+  - {fileID: 2100000, guid: 4ce4b3fab8676904cbd85b9a69ca28ce, type: 2}
 --- !u!195 &4692090217351407600
 NavMeshAgent:
   m_ObjectHideFlags: 0

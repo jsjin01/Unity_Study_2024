@@ -53,6 +53,7 @@ public abstract class WeaponComponent : MonoBehaviour  //추상 클래스로 선언
         }
         
         //obj로 받은 객체의 TakeDamage(dmg) 함수 호출
+        obj.GetComponent<MonsterComponent>().TakeDamage(dmg);
     }
 
     protected void ReduceAmmo()
