@@ -23,6 +23,7 @@ public class CardManager : MonoBehaviour
     public void SelectedCard() //카드 뽑기 알고리즘 
     {
         GameObject CardPack = gameObject.transform.GetChild(1).gameObject;//card의 상위 객체 추출
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
         while (true)
         {
             cardnum[0] = Random.Range(0, 5);
@@ -38,6 +39,17 @@ public class CardManager : MonoBehaviour
         for(int j = 0; j <3; j++) //활성화
         {
             CardPack.transform.GetChild(cardnum[j]).gameObject.SetActive(true);
+        }
+    }
+
+    public void CardOff()
+    {
+        GameObject CardPack = gameObject.transform.GetChild(1).gameObject;//card의 상위 객체 추출
+
+        for (int j = 0; j < 3; j++) {
+            CardPack.transform.GetChild(cardnum[j]).gameObject.SetActive(false);
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
 }

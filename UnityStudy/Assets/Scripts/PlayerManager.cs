@@ -13,7 +13,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public float atk = 10f;                //µ¥¹ÌÁö
     [SerializeField] public float cri = 5f;                 //Å©¸®µ¥¹ÌÁö
     [SerializeField] public float atkspd = 1f;              //°ø°Ý ¼Óµµ
-    [SerializeField] public int exp = 0;
+    [SerializeField] public int exp = 0;                    //Exp
+    [SerializeField] public int Maxexp = 100;               //MaxExp
 
     [SerializeField] GameObject shield_PreFab;
     [SerializeField] GameObject turret_Prefab;
@@ -68,7 +69,8 @@ public class PlayerManager : MonoBehaviour
         }
         else if (other.CompareTag("ItemShotgun"))
         {
-            //È­¿°¹æ»ç±â ÀåÂø
+            //¼¦°Ç ÀåÂø
+            ShootComponent.i.SetWeapon(WEAPON.SHOTGUN);
             Destroy(other.gameObject);
         }
     }

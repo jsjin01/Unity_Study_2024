@@ -9,10 +9,13 @@ public class WeaponShotGun : WeaponComponent
 
     public override void Shot()
     {
-        StartCoroutine(SetShotGun());
-        StartCoroutine(ShotRate());
+        if (canShoot)
+        {
+            StartCoroutine(SetShotGun());
+            StartCoroutine(ShotRate());
+            SoundManager.i.weaponAudioPlay(2);
+        }
 
-        SoundManager.i.weaponAudioPlay(2);
     }
 
     IEnumerator SetShotGun()

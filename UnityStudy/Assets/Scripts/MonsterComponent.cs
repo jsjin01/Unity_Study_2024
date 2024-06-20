@@ -22,7 +22,8 @@ public class MonsterComponent : MonoBehaviour
     BoxCollider boxCollider;
     NavMeshAgent nav;
     SkinnedMeshRenderer smr;
-    
+
+    [SerializeField] ENEMY type;
     [SerializeField] int hp = 100; //적 체력설정
     [SerializeField] int hpMax = 100; //최대 체력설정
     [SerializeField] int atk = 10; //공격력 설정
@@ -83,7 +84,6 @@ public class MonsterComponent : MonoBehaviour
     {
         if (isDead)
         {
-            PlayerManager.i.plusExp();  //몬스터가 죽으면 경험치 추가
             return;
         }
 
@@ -97,9 +97,15 @@ public class MonsterComponent : MonoBehaviour
                 StartCoroutine(KnockBack());
             }
         }
-        Vector3 p = transform.position;
+        //Vector3 p = transform.position; // => 사용안함
 
         SoundManager.i.monsterAudioPlay();
+
+        isDead = true;
+        StopAllCoroutines();
+        PlayerManager.i.plusExp();
+        smr.material = mat[0];      //원본 매터리얼로 변경
+        EnemyPoolManager.i.EnemyDestory(type, gameObject);
     }
     IEnumerator SetHitColor()
     {

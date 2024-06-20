@@ -33,12 +33,16 @@ public class UiManager : MonoBehaviour
     public void expBar()
     {
         expSlider.value = PlayerManager.i.exp;
-        
-        if(expSlider.value >= 100)  //경험치바 100이상이면
+        expSlider.maxValue = PlayerManager.i.Maxexp;
+
+
+        if (expSlider.value >= expSlider.maxValue)  //경험치바 100이상이면
         {
             expSlider.value = 0;    //슬라이더 초기화
             PlayerManager.i.exp = 0;    //경험치 초기화
             CardManager.i.SelectedCard();   //카드뽑기
+            Time.timeScale = 0; //시간 멈춤
+
         }
     }
 }

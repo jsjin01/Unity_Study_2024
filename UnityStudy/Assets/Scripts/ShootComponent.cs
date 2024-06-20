@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class ShootComponent : MonoBehaviour
 {
+    public static ShootComponent i;
     [SerializeField] WEAPON wType = WEAPON.NORMAL;  //현재 무기 타입
     [SerializeField] GameObject[] weapon;           //생성할 무기 오브젝트 배열
     GameObject currentWeapon;                       //현재 무기를 담아둘 변수
     WeaponComponent wc;                             //현재 무기의 WeaponComponent를 담아둠
 
+
+    private void Awake()
+    {
+        i = this;
+    }
     private void Start()
     {
         SetWeapon(wType);

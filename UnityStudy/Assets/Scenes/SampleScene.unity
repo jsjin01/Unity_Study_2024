@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &14425293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -530,6 +530,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1738704980}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
         m_MethodName: cardAtkSPDUP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 14425294}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
+        m_MethodName: CardOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2045,6 +2057,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 14425294}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
+        m_MethodName: CardOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &852464451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,7 +2188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &855907350
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3565,6 +3589,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 14425294}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
+        m_MethodName: CardOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1479065021
 GameObject:
   m_ObjectHideFlags: 0
@@ -3731,6 +3767,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1738704980}
         m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
         m_MethodName: cardCriUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 14425294}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
+        m_MethodName: CardOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4131,6 +4179,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 14425294}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
+        m_MethodName: CardOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1694555642
 GameObject:
   m_ObjectHideFlags: 0
@@ -4323,6 +4383,7 @@ MonoBehaviour:
   cri: 5
   atkspd: 1
   exp: 0
+  Maxexp: 100
   shield_PreFab: {fileID: 5838337519552399149, guid: 5251a780cc36fa64e8bdaa8a1d21a646, type: 3}
   turret_Prefab: {fileID: 7178880419260694973, guid: 46c624bb42ba0794194c21369d6130d0, type: 3}
 --- !u!1001 &1772204263
@@ -4681,6 +4742,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059025455}
   m_CullTransparentMesh: 1
+--- !u!1001 &2094082096
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1000011474104924, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
+      propertyPath: m_Name
+      value: Item_Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010051264826, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010051264826, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010051264826, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010051264826, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010051264826, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010051264826, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010051264826, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010051264826, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010051264826, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010051264826, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c84aefb27d8a5443c84fdc4cd7f97f8e, type: 3}
 --- !u!1 &2123358923
 GameObject:
   m_ObjectHideFlags: 0
@@ -4852,3 +4970,4 @@ SceneRoots:
   - {fileID: 94036226}
   - {fileID: 430268470}
   - {fileID: 463766947}
+  - {fileID: 2094082096}

@@ -68,10 +68,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atk: 0
-  rate: 0
+  rate: 1
   cri: 0
-  wType: 0
-  ammo: 0
+  wType: 2
+  ammo: 300
   isAuto: 0
 --- !u!1 &3329817051583365278
 GameObject:

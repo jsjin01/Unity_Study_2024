@@ -65,8 +65,10 @@ public abstract class WeaponComponent : MonoBehaviour  //추상 클래스로 선언
         ammo--;
         if(ammo == 0)
         {
+            Debug.Log("dsfs");
             isAuto = false;
-            GetComponent<ShootComponent>().SetWeapon(WEAPON.NORMAL); //탄창 0이 되면 노말로 교체
+            gameObject.GetComponentInParent<ShootComponent>().SetWeapon(WEAPON.NORMAL); //탄창 0이 되면 노말로 교체
+            Destroy(gameObject);
         }
     }
 }
