@@ -31,6 +31,7 @@ public class ShootComponent : MonoBehaviour
     public void SetWeapon(WEAPON _t) //무기 바꿀때 호출
     {
         wType = _t;
+        UiManager.i.WeaponTitle((int)_t);
         if (currentWeapon) //currentWeapon이 null인지 아닌지 판단
         {
             Destroy(currentWeapon); //null이 아니라면 삭제

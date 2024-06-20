@@ -66,7 +66,8 @@ public abstract class WeaponComponent : MonoBehaviour  //추상 클래스로 선언
     protected void ReduceAmmo()
     {
         ammo--;
-        if(ammo == 0)
+        UiManager.i.SetAmmo(ammo);
+        if (ammo == 0)
         {
             isAuto = false;
             gameObject.GetComponentInParent<ShootComponent>().SetWeapon(WEAPON.NORMAL); //탄창 0이 되면 노말로 교체

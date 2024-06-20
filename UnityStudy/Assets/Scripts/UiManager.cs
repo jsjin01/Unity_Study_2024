@@ -10,7 +10,8 @@ public class UiManager : MonoBehaviour
     public static UiManager i;
     [SerializeField] GameObject GameOverUi; //게임 오버 UI
     public Slider expSlider;
-    [SerializeField] Text[] stat;
+    [SerializeField] Text[] stat; //스탯 UI 
+    [SerializeField] Text[] weapon;//웨폰 UI
 
     private void Awake()
     {
@@ -63,5 +64,35 @@ public class UiManager : MonoBehaviour
     public void StatUp(int id, int lv)
     {
         stat[id].text = "LV : " + lv;
+    }
+
+    public void WeaponTitle(int id)
+    {
+        switch (id)
+        {
+            case 0:
+                weapon[0].text = "NORMAL";
+                weapon[1].text = "∞";
+                break;
+            case 1:
+                weapon[0].text = "FLAME";
+                SetAmmo(5000);
+                break;
+            case 2:
+                weapon[0].text = "SHOTGUN";
+                SetAmmo(300);
+                break;
+            case 3:
+                weapon[0].text = "E_LASER";
+                SetAmmo(5000);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void SetAmmo(int ammo)
+    {
+        weapon[1].text = ammo.ToString();
     }
 }
