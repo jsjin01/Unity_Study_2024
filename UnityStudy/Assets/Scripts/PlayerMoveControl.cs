@@ -83,6 +83,7 @@ public class PlayerMoveControl : MonoBehaviour
 
     public void Dead() // 오브젝트 비활성화
     {
+       UiManager.i.Gameover();
         gameObject.SetActive(false);
     }
 }

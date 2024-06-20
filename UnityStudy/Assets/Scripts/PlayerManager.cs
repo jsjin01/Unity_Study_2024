@@ -1,23 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    public static PlayerManager i;      //static ¼±¾ğ
+    public static PlayerManager i;      //static ì„ ì–¸
 
-    [SerializeField] public float moveSpeed = 2.5f;    //¼Óµµ
-    [SerializeField] public float hp = 100f;           //Ã¼·Â
-    [SerializeField] public float maxHp = 100f;        //ÃÖ´ë Ã¼·Â
-    [SerializeField] public float atk = 10f;                //µ¥¹ÌÁö
-    [SerializeField] public float cri = 5f;                 //Å©¸®µ¥¹ÌÁö
-    [SerializeField] public float atkspd = 1f;              //°ø°İ ¼Óµµ
+    [SerializeField] public float moveSpeed = 2.5f;    //ì†ë„
+    [SerializeField] public float hp = 100f;           //ì²´ë ¥
+    [SerializeField] public float maxHp = 100f;        //ìµœëŒ€ ì²´ë ¥
+    [SerializeField] public float atk = 10f;                //ë°ë¯¸ì§€
+    [SerializeField] public float cri = 5f;                 //í¬ë¦¬ë°ë¯¸ì§€
+    [SerializeField] public float atkspd = 1f;              //ê³µê²© ì†ë„
     [SerializeField] public int exp = 0;                    //Exp
     [SerializeField] public int Maxexp = 100;               //MaxExp
-
     [SerializeField] GameObject shield_PreFab;
-    [SerializeField] GameObject turret_Prefab;
 
     private void Awake()
     {
@@ -35,71 +33,16 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    public void Recovery(int value) //hp È¸º¹
+    public void Recovery(int value) //hp íšŒë³µ
     {
         hp += value;
         if (hp > maxHp) hp = maxHp;
     }
-    public void ShieldOn()  //½¯µå »ı¼º
-    {
-        GameObject shield = Instantiate(shield_PreFab, transform.position+new Vector3(0, 0.93f, 0), Quaternion.identity);
-        shield.transform.SetParent(this.transform);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("ItemShield")) //½¯µå ¾ÆÀÌÅÛÀ» ¸Ô¾úÀ» ¶§
-        {
-            ShieldOn(); //½¯µå »ı¼ºÇÏ±â
-            Destroy(other.gameObject);  //½¯µå ¾ÆÀÌÅÛ ¾ø¾Ö±â
-        }
-        else if (other.CompareTag("ItemTurret"))    //ÅÍ·¿ ¾ÆÀÌÅÛÀ» ¸Ô¾úÀ» ¶§
-        {
-            Instantiate(turret_Prefab, transform.position, Quaternion.identity);    //ÅÍ·¿ »ı¼º
-            Destroy(other.gameObject);  //ÅÍ·¿ ¾ÆÀÌÅÛ ¾ø¾Ö±â
-        }
-        else if (other.CompareTag("ItemFlame"))
-        {
-            //È­¿°¹æ»ç±â ÀåÂø
-            Destroy(other.gameObject);
-        }
-        else if (other.CompareTag("ItemTazer"))
-        {
-            //È­¿°¹æ»ç±â ÀåÂø
-            Destroy(other.gameObject);
-        }
-        else if (other.CompareTag("ItemShotgun"))
-        {
-            //¼¦°Ç ÀåÂø
-            ShootComponent.i.SetWeapon(WEAPON.SHOTGUN);
-            Destroy(other.gameObject);
-        }
-    }
 
-    public void cardAtkUP() //Ä«µå¿¡¼­ °ø°İ·Â Áõ°¡
-    {
-        atk += 5;
-    }
-    public void cardAtkSPDUP() //Ä«µå¿¡¼­ °ø¼Ó Áõ°¡
-    {
-        atkspd *= 0.9f;
-    }
 
-    public void cardCriUp() //Ä«µå¿¡¼­ Ä¡¸íÅ¸ È®·ü Áõ°¡
-    {
-        cri += 5;
-    }
 
-    public void cardSpdUP() //Ä«µå¿¡¼­ ÀÌµ¿¼Óµµ Áõ°¡
+    public void ShieldOn()  //ì‰´ë“œ ìƒì„±
     {
-        moveSpeed *= 1.1f;
-    }
-    public void cardMaxHpUP() //Ä«µå¿¡¼­ ÃÖ´ë Ã¼·Â Áõ°¡
-    {
-        maxHp += 10;
-        GameObject.Find("Hp").GetComponent<Slider>().maxValue = maxHp;
-    }
-    public void plusExp()
-    {
-        exp += 10;
+        Instantiate(shield_PreFab, transform.position, Quaternion.identity);
     }
 }

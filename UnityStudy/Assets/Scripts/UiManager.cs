@@ -45,4 +45,9 @@ public class UiManager : MonoBehaviour
 
         }
     }
+
+    public void Gameover()
+    { 
+        GameObject.Find("Gameover").SetActive(true);
+    }
 }
