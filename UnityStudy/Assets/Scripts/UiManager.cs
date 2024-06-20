@@ -41,4 +41,9 @@ public class UiManager : MonoBehaviour
             CardManager.i.SelectedCard();   //Ä«µå»Ì±â
         }
     }
+
+    public void Gameover()
+    { 
+        GameObject.Find("Gameover").SetActive(true);
+    }
 }
