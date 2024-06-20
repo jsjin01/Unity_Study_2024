@@ -81,7 +81,11 @@ public class MonsterComponent : MonoBehaviour
     
     public void TakeDamage(float dmg, STATUS _st = STATUS.NORMAL, bool cri = false)
     {
-        if (isDead) return;
+        if (isDead)
+        {
+            PlayerManager.i.plusExp();  //몬스터가 죽으면 경험치 추가
+            return;
+        }
 
         hp -= (int)dmg; //hp 감소
         StartCoroutine(SetHitColor());
@@ -95,7 +99,7 @@ public class MonsterComponent : MonoBehaviour
         }
         Vector3 p = transform.position;
 
-        SoundManager.i.monsterAudioPlay(0);
+        SoundManager.i.monsterAudioPlay();
     }
     IEnumerator SetHitColor()
     {
@@ -129,7 +133,6 @@ public class MonsterComponent : MonoBehaviour
             }
             if (hit)
             {
-                SoundManager.i.monsterAudioPlay(0);
                 PlayerMoveControl.i.TakeDamage(atk);
                 StartCoroutine(hitrate());
             }

@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public float atk = 10f;                //데미지
     [SerializeField] public float cri = 5f;                 //크리데미지
     [SerializeField] public float atkspd = 1f;              //공격 속도
+    [SerializeField] public int exp = 0;
 
     [SerializeField] GameObject shield_PreFab;
     [SerializeField] GameObject turret_Prefab;
@@ -94,5 +95,9 @@ public class PlayerManager : MonoBehaviour
     {
         maxHp += 10;
         GameObject.Find("Hp").GetComponent<Slider>().maxValue = maxHp;
+    }
+    public void plusExp()
+    {
+        exp += 10;
     }
 }

@@ -6,10 +6,12 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager i;
 
-    public AudioSource audioSource;
+    public AudioSource audioSource_weapon;
+    public AudioSource audioSource_monster;
+
 
     public AudioClip[] weaponAudio; //무기 오디오 배열
-    public AudioClip[] mosterAudio; //몬스터 오디오 배열
+    public AudioClip mosterAudio; //몬스터 오디오 배열
 
     private void Awake()
     {
@@ -18,13 +20,13 @@ public class SoundManager : MonoBehaviour
 
     public void weaponAudioPlay(int i)
     {
-        audioSource.clip = weaponAudio[i];  //오디오 클립 바꾸기
-        audioSource.Play();     //오디오 플레이
+        audioSource_weapon.clip = weaponAudio[i];  //오디오 클립 바꾸기
+        audioSource_weapon.Play();     //오디오 플레이
     }
 
-    public void monsterAudioPlay(int i)
+    public void monsterAudioPlay()
     {
-        audioSource.clip = weaponAudio[i];  //오디오 클립 바꾸기
-        audioSource.Play();     //오디오 플레이
+        audioSource_monster.clip = mosterAudio;  //오디오 클립 바꾸기
+        audioSource_monster.Play();     //오디오 플레이
     }
 }
