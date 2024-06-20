@@ -153,6 +153,7 @@ MonoBehaviour:
   maxHealth: 0
   target: {fileID: 0}
   isDead: 0
+  type: 2
   hp: 100
   hpMax: 100
   atk: 10

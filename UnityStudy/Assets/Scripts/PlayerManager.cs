@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public static PlayerManager i;      //static ¼±¾ğ
+    public static PlayerManager i;      //static ì„ ì–¸
 
-    [SerializeField] public float moveSpeed = 2.5f;    //¼Óµµ
-    [SerializeField] public float hp = 100f;           //Ã¼·Â
-    [SerializeField] public float maxHp = 100f;        //ÃÖ´ë Ã¼·Â
-    [SerializeField] public float cri;                 //Å©¸®µ¥¹ÌÁö
-    [SerializeField] public float atkspd;              //°ø°İ ¼Óµµ
-
+    [SerializeField] public float moveSpeed = 2.5f;    //ì†ë„
+    [SerializeField] public float hp = 100f;           //ì²´ë ¥
+    [SerializeField] public float maxHp = 100f;        //ìµœëŒ€ ì²´ë ¥
+    [SerializeField] public float atk = 10f;                //ë°ë¯¸ì§€
+    [SerializeField] public float cri = 5f;                 //í¬ë¦¬ë°ë¯¸ì§€
+    [SerializeField] public float atkspd = 1f;              //ê³µê²© ì†ë„
+    [SerializeField] public int exp = 0;                    //Exp
+    [SerializeField] public int Maxexp = 100;               //MaxExp
     [SerializeField] GameObject shield_PreFab;
 
     private void Awake()
@@ -31,7 +33,7 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    public void Recovery(int value) //hp È¸º¹
+    public void Recovery(int value) //hp íšŒë³µ
     {
         hp += value;
         if (hp > maxHp) hp = maxHp;
@@ -39,7 +41,7 @@ public class PlayerManager : MonoBehaviour
 
 
 
-    public void ShieldOn()  //½¯µå »ı¼º
+    public void ShieldOn()  //ì‰´ë“œ ìƒì„±
     {
         Instantiate(shield_PreFab, transform.position, Quaternion.identity);
     }
