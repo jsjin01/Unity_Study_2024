@@ -2,25 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponFlame : WeaponComponent
+public class WeaponFlame : WeaponComponent  //잔버그 
 {
     BoxCollider bc;
     ParticleSystem fx;
 
+
+    private void OnEnable()
+    {
+        atk *= 0.1f;
+    }
     public override void Shot()
     {
         if (!isAuto)
         {
             isAuto = true;
-            StartCoroutine(SetFlame());
+                StartCoroutine(SetFlame());
         }
         else
         {
             isAuto = false;
         }
-
-        SoundManager.i.weaponAudioPlay(1);
-        
     }
 
     IEnumerator SetFlame()
@@ -28,7 +30,7 @@ public class WeaponFlame : WeaponComponent
         if(bc == null) //초기화
         {
             bc = GetComponent<BoxCollider>();
-            fx = GetComponent<ParticleSystem>();
+            fx = GetComponentInChildren<ParticleSystem>();
         }
 
 
@@ -36,6 +38,7 @@ public class WeaponFlame : WeaponComponent
         {
             if (!fx.isPlaying)
             {
+                SoundManager.i.weaponAudioPlay(1);
                 fx.Play();//파티클 실행
             }
             bc.enabled = true;
@@ -47,4 +50,4 @@ public class WeaponFlame : WeaponComponent
         fx.Stop();
     }
 }
-//?
+

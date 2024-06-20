@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
     public static UiManager i;
-
+    [SerializeField] GameObject GameOverUi; //게임 오버 UI
     public Slider expSlider;
+    [SerializeField] Text[] stat;
 
     private void Awake()
     {
@@ -48,6 +50,18 @@ public class UiManager : MonoBehaviour
 
     public void Gameover()
     { 
-        GameObject.Find("Gameover").SetActive(true);
+        //GameObject.Find("Gameover").SetActive(true); //Find => 활성화된 객체만 찾을 수 있음
+        GameOverUi.SetActive(true);
+    }
+
+    public void GameRetry()
+    {
+        SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1;
+    }
+
+    public void StatUp(int id, int lv)
+    {
+        stat[id].text = "LV : " + lv;
     }
 }

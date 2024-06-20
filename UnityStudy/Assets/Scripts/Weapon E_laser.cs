@@ -6,6 +6,10 @@ public class Weapon_Lightnig : WeaponComponent
 {
     BoxCollider bc;
     ParticleSystem fx;
+    private void OnEnable()
+    {
+        atk *= 0.1f;
+    }
     public override void Shot()
     {
         if(!isAuto)

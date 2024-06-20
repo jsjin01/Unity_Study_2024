@@ -12,9 +12,9 @@ public enum WEAPON //무기 종류 => 열거문으로 선언
 }
 public abstract class WeaponComponent : MonoBehaviour  //추상 클래스로 선언
 {
-    [SerializeField] protected float atk;                //공격력
-    [SerializeField] protected float rate;             //공격속도
-    [SerializeField] protected float cri;              //크리티컬 확률
+    protected float atk;                //공격력
+    protected float rate;             //공격속도
+    protected float cri;              //크리티컬 확률
    
 
     [SerializeField] protected WEAPON wType;          //무기 종류
@@ -27,7 +27,10 @@ public abstract class WeaponComponent : MonoBehaviour  //추상 클래스로 선언
 
     private void Update()
     {
+        // 기본 스탯을 가져옴
         atk = PlayerManager.i.atk;
+        rate = PlayerManager.i.atkspd;
+        cri = PlayerManager.i.cri;
     }
     public abstract void Shot();                     //재정의할 함수
                                                      //총의 종류마다 쏘는 방법만 다르기 때문에
@@ -65,7 +68,6 @@ public abstract class WeaponComponent : MonoBehaviour  //추상 클래스로 선언
         ammo--;
         if(ammo == 0)
         {
-            Debug.Log("dsfs");
             isAuto = false;
             gameObject.GetComponentInParent<ShootComponent>().SetWeapon(WEAPON.NORMAL); //탄창 0이 되면 노말로 교체
             Destroy(gameObject);

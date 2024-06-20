@@ -26,8 +26,8 @@ public class MonsterComponent : MonoBehaviour
     [SerializeField] ENEMY type;
     [SerializeField] int hp = 100; //적 체력설정
     [SerializeField] int hpMax = 100; //최대 체력설정
-    [SerializeField] int atk = 10; //공격력 설정
-    [SerializeField] float atkRate = 0.2f; //공격속도 설정
+    [SerializeField] public int atk = 10; //공격력 설정
+    [SerializeField] float atkRate = 1f; //공격속도 설정
     [SerializeField] Material[] mat = new Material[2];      //원본과 피격 시 변경해 줄 매터리얼을 담아둘 배열
 
     bool isKnock = false;
@@ -125,7 +125,7 @@ public class MonsterComponent : MonoBehaviour
     IEnumerator hitrate()//공격 속도 설정
     {
         hit = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(atkRate);
         hit = true;
     }
 

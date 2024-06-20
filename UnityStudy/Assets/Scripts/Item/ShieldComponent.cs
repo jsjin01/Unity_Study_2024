@@ -10,12 +10,11 @@ public class ShieldComponent : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            //적과 만나면 적의 데미지만큼 쉴드 체력깎기
-            //쉴드 체력이 0이 되면 없애기
+            shieldHp -= other.GetComponent<MonsterComponent>().atk;
+            if (shieldHp < 0)
+            {
+                Destroy(gameObject);
+            }
         }
-    }
-    void DestroyShield()
-    {
-        Destroy(gameObject);
     }
 }

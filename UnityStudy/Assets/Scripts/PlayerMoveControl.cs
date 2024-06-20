@@ -22,6 +22,7 @@ public class PlayerMoveControl : MonoBehaviour
     void Start()
     {
         speed = PlayerManager.i.moveSpeed;      //PlayerManager스크립트에서 받아오기
+        UiManager.i.hpBar(PlayerManager.i.hp);  //hp바 적용 
     }
 
 
@@ -84,6 +85,8 @@ public class PlayerMoveControl : MonoBehaviour
     public void Dead() // 오브젝트 비활성화
     {
        UiManager.i.Gameover();
-        gameObject.SetActive(false);
+        Time.timeScale = 0;
+       //gameObject.SetActive(false);  //굳이 비활성화 할 필요가 없다
     }
+
 }

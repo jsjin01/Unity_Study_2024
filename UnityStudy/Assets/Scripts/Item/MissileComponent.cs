@@ -17,7 +17,7 @@ public class MissileComponent : MonoBehaviour
     {
         if(other.CompareTag("Enemy")) // Tag가 "Enemy"일 경우
         {
-            //몬스터 TakeDamage()
+            other.GetComponent<MonsterComponent>().TakeDamage(10);
             Destroy(gameObject);  //오브젝트 삭제
         }
     }
