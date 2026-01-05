@@ -11,6 +11,7 @@ public class ShieldComponent : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             shieldHp -= other.GetComponent<MonsterComponent>().atk;
+            other.GetComponent<MonsterComponent>().TakeDamage(0, STATUS.KNOCK);
             if (shieldHp < 0)
             {
                 Destroy(gameObject);

@@ -65,7 +65,7 @@ public class Spawner : MonoBehaviour
         return hit.point;       //광선이 맞은 지점 반환
     }
 
-    IEnumerator SpawnE(ENEMY _t, float time) // 사간마다 소환되도록 코루틴 함수로 작성
+    IEnumerator SpawnE(ENEMY _t, float time) // 시간마다 소환되도록 코루틴 함수로 작성
     {
         while (isSpawn)
         {

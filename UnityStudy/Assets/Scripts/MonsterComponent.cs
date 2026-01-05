@@ -13,7 +13,6 @@ public enum STATUS
 
 public class MonsterComponent : MonoBehaviour
 {
-    public int maxHealth; //최대 체력
     public Transform target; //ai를 통한 플레이어 따라다니기 타겟
 
     public bool isDead = false; // 죽음 판단 변수
@@ -97,15 +96,15 @@ public class MonsterComponent : MonoBehaviour
                 StartCoroutine(KnockBack());
             }
         }
-        //Vector3 p = transform.position; // => 사용안함
-
         SoundManager.i.monsterAudioPlay();
-
-        isDead = true;
-        StopAllCoroutines();
-        PlayerManager.i.plusExp();
-        smr.material = mat[0];      //원본 매터리얼로 변경
-        EnemyPoolManager.i.EnemyDestory(type, gameObject);
+        if(hp <= 0)
+        {
+            isDead = true;
+            StopAllCoroutines();
+            PlayerManager.i.plusExp();
+            smr.material = mat[0];      //원본 매터리얼로 변경
+            EnemyPoolManager.i.EnemyDestory(type, gameObject);
+        }
     }
     IEnumerator SetHitColor()
     {
@@ -117,7 +116,7 @@ public class MonsterComponent : MonoBehaviour
     IEnumerator KnockBack()
     {
         isKnock = true;
-        rigid.AddForce(-transform.forward * 1000);
+        rigid.AddForce(-transform.forward * 3000);
         yield return new WaitForSeconds(0.5f);
         isKnock = false;
     }

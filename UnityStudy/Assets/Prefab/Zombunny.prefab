@@ -106,7 +106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5589865292906597048
 Transform:
   m_ObjectHideFlags: 0
@@ -156,13 +156,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab60bb78e6f59724496582a86afb0199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
   target: {fileID: 0}
   isDead: 0
-  hp: 100
-  hpMax: 100
+  type: 0
+  hp: 30
+  hpMax: 30
   atk: 10
-  atkRate: 0.2
+  atkRate: 1
   mat:
   - {fileID: 2100000, guid: 90309a9ae07af7a4baf27031c594f369, type: 2}
   - {fileID: 2100000, guid: 4ce4b3fab8676904cbd85b9a69ca28ce, type: 2}

@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012828216092}
   - component: {fileID: 4552572007931603036}
+  - component: {fileID: -8410139880423230523}
   m_Layer: 0
   m_Name: Item_Tazer
   m_TagString: ItemTazer
@@ -143,6 +144,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 9.38369}
   m_Center: {x: 0, y: 0, z: -0.061355382}
+--- !u!114 &-8410139880423230523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010964463682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba169da069d67a4fb26243cfe9ec40a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  w: 3
 --- !u!1 &1000011705015594
 GameObject:
   m_ObjectHideFlags: 0

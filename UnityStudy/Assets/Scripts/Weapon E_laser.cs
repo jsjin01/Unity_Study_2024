@@ -25,7 +25,7 @@ public class Weapon_Lightnig : WeaponComponent
         if(bc == null) 
         { 
             bc = GetComponent<BoxCollider>();
-            fx = GetComponent<ParticleSystem>();
+            fx = GetComponentInChildren<ParticleSystem>();
         }
         
         while (isAuto)

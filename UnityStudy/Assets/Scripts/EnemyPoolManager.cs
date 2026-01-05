@@ -48,6 +48,7 @@ public class EnemyPoolManager : MonoBehaviour
         {
             Instantiate(EnemyPrefabs[(int)_t], transform.GetChild((int)_t)); //한마리 생성
         }
+
     }
 
     public void EnemySpawn(ENEMY _t, Vector3 pos)//생성한 Enemy를 가져와서 사용

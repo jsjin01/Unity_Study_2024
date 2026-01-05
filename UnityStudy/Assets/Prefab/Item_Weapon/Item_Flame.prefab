@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012818909956}
   - component: {fileID: -4290316915341324208}
+  - component: {fileID: 5130778029242688560}
   m_Layer: 0
   m_Name: Item_Flame
   m_TagString: ItemFlame
@@ -143,6 +144,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.94706565, y: 0.9579084, z: 8.784967}
   m_Center: {x: 0.026467126, y: -0.021046102, z: -0.12476683}
+--- !u!114 &5130778029242688560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010238399616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba169da069d67a4fb26243cfe9ec40a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  w: 1
 --- !u!1 &1000010900750102
 GameObject:
   m_ObjectHideFlags: 0
